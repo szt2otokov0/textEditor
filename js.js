@@ -4,16 +4,19 @@ function $(id){
 
 
 window.onload = () => {
+    $('openwindowbutton').addEventListener('click',() => {
+        $('openwindow').classList.add("window-open");
+    })
     $('openbutton').addEventListener("click",() => {
         let filePath = $("filepicker").files[0];
         if(!filePath) {
             alert("Nincs fájl kiválasztva!")
             return;
         }
-        $("openwindow").style = "visibility: none;"
+        $("openwindow").classList.remove("window-open")
         let reader = new FileReader();
         reader.onloadend = () => {
-            $("textfield").textContent = reader.result;
+            $("textfield").value = reader.result;
         }
         reader.readAsText(filePath);
     })
