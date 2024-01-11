@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Szövegszerkesztő</title>
+</head>
+<body>
+    <header>
+        <h1>Szövegszerkesztő</h1>
+    </header>
+    <main>
+        <div id="openwindow" class="window">
+            <h3>Válassza ki a szerkesztendő fájlt:</h3>
+            <input type="file" name="openfile" id="filepicker">
+            <button id="openbutton">Megnyit</button>
+        </div>
+        <div id="editorcontent">
+            <div id="editingarea">
+                <textarea id="textfield"></textarea>
+            </div>
+            <div id="toolbar">
+                <button id="closebutton">Close</button>
+                <button id="savewindowbutton">Save</button>
+            </div>
+            <div id="savewindow" class="window">
+                <h3>Válassza ki, hove szeretné menteni a fájlt:</h3>
+                <button id="savebutton">Save</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
