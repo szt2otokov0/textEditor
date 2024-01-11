@@ -20,6 +20,12 @@ window.onload = () => {
         }
         reader.readAsText(filePath);
     })
+    $("closebutton").addEventListener("click",() => {
+        $("textfield").value = "";
+    })
+    $('savewindowbutton').addEventListener("click",() => {
+        $("savewindow").classList.add("window-open")
+    })
     $("savebutton").addEventListener("click",() => {
         let fileUrl = URL.createObjectURL(new Blob([$("textfield").textContent],{type:"text/plain"}))
         let a = document.createElement('a');
@@ -27,5 +33,6 @@ window.onload = () => {
         let fileName = $('filepicker').value.toString();
         a.download = fileName.split('\\')[2]
         a.click();
+        $("savewindow").classList.remove("window-open")
     })
 }

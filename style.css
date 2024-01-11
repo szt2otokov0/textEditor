@@ -32,7 +32,7 @@ h3 {
     right: calc(100vw / 3);
     z-index: 1;
     padding: 1em;
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid rgb(71, 71, 71);
     border-right: 5px solid black;
     border-bottom-right-radius: 1px;
 }
