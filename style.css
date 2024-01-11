@@ -49,4 +49,7 @@ button, input[type=file] {
     margin: 1em;
 }
 
-textarea
+textarea {
+    width: 90vw;
+    height: 75vh;
+}
