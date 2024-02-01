@@ -5,14 +5,18 @@ function $(id){
 
 window.onload = () => {
     $('openwindowbutton').addEventListener('click',() => {
-        $('openwindow').classList.add("window-open");
+        $('openwindow').showModal();
+        $("openwindow").classList.add("window-open")
+        $("textfield").disabled = true;
     })
     $('openbutton').addEventListener("click",() => {
+        $("textfield").disabled = false;
         let filePath = $("filepicker").files[0];
         if(!filePath) {
             alert("Nincs fájl kiválasztva!")
             return;
         }
+        $("openwindow").close()
         $("openwindow").classList.remove("window-open")
         let reader = new FileReader();
         reader.onloadend = () => {
@@ -24,15 +28,20 @@ window.onload = () => {
         $("textfield").value = "";
     })
     $('savewindowbutton').addEventListener("click",() => {
+        $("savewindow").showModal()
         $("savewindow").classList.add("window-open")
+        $("textfield").disabled = true;
     })
     $("savebutton").addEventListener("click",() => {
-        let fileUrl = URL.createObjectURL(new Blob([$("textfield").textContent],{type:"text/plain"}))
+        let fileUrl = URL.createObjectURL(new Blob([$("textfield").value],{type:"text/plain"}))
         let a = document.createElement('a');
         a.href = fileUrl;
         let fileName = $('filepicker').value.toString();
-        a.download = fileName.split('\\')[2]
+        let saveFileName = fileName.split('\\')[2];
+        a.download = !saveFileName ? "text.txt" : saveFileName
         a.click();
+        $("savewindow").close()
         $("savewindow").classList.remove("window-open")
+        $('textfield').disabled = false;
     })
 }

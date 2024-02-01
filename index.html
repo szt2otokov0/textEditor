@@ -13,11 +13,11 @@
     </header>
     <main>
         <button id="openwindowbutton" >Open file...</button>
-        <div id="openwindow" class="window">
+        <dialog id="openwindow" class="window">
             <h3>Válassza ki a szerkesztendő fájlt:</h3>
             <input type="file" name="openfile" id="filepicker">
             <button id="openbutton">Megnyit</button>
-        </div>
+        </dialog>
         <div id="editorcontent">
             <div id="editingarea">
                 <textarea id="textfield" placeholder="Nyiss meg egy fájl a szerkesztéshez..."></textarea>
@@ -26,10 +26,11 @@
                 <button id="closebutton">Close</button>
                 <button id="savewindowbutton">Save file...</button>
             </div>
-            <div id="savewindow" class="window">
+            <dialog id="savewindow" class="window">
                 <h3>Kattintson a "Mentés" gombra a kész fájl letöltéséhez!</h3>
+                <input type="hidden" name="">
                 <button id="savebutton">Save</button>
-            </div>
+            </dialog>
         </div>
     </main>
 </body>
